@@ -1,0 +1,599 @@
+/* ==========================================
+   GLOBAL THEME
+========================================== */
+:root {
+  --beige: #ebcb96;
+  --dark-brown: #3b2f2f;
+  --card-bg: #f0cc99;
+}
+
+body {
+  background: var(--beige);
+  color: var(--dark-brown);
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   HEADINGS
+========================================== */
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--dark-brown);
+}
+
+h4, h5 {
+  font-family: "Merriweather", serif;
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+.app-container {
+  display: flex;
+  min-height: 150vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   COLLAPSIBLE SIDEBAR
+========================================== */
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toggle / Hamburger Button */
+#toggle-btn {
+  background: var(--dark-brown);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 12px;
+  width: fit-content;
+}
+
+/* Sidebar Box */
+.sidebar {
+  width: 240px;
+  height: 80vh;
+  background: #f4eee8;
+  padding: 16px;
+  margin-left: 5px;
+  overflow: hidden;
+  transition: width 0.3s ease, padding 0.3s ease;
+  border: 2px dashed #3b2f2f;
+  border-radius: 16px;
+}
+
+/* Collapsed State */
+.sidebar.collapsed {
+  width: 0;
+  padding: 0;
+}
+
+/* Sidebar nav */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 12px 0;
+  font-size: 1.5rem;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: var(--dark-brown);
+  font-weight: 600;
+}
+.icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--dark-brown);
+}
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Merriweather", serif;
+  font-size: 16px;
+  color: var(--dark-brown);
+  padding: 10px 5px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.sidebar-link:hover {
+  background: #e3d7c6;
+}
+
+/* ============================================================
+   RESTAURANT CARD — Upgraded Café Aesthetic
+============================================================ */
+/* Tagline */ .tagline { text-align: center; margin: 16px 0; font-size: 1.2rem; }
+.restaurant-card {
+  background: #f7e0bd;
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.restaurant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* Image wrapper gives rounded edges that do not overflow */
+.img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.restaurant-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.restaurant-card:hover .restaurant-img {
+  transform: scale(1.05);
+}
+
+/* Content section */
+.card-body {
+  flex: 1;
+  padding: 0 4px;
+}
+
+.rest-name {
+  font-family: "Playfair Display";
+  font-size: 22px;
+  margin: 8px 0 4px;
+  color: var(--dark-brown);
+}
+
+.rest-location {
+  font-family: "Merriweather";
+  font-size: 15px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.rest-rating {
+  font-family: "Merriweather";
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-brown);
+  margin-bottom: 10px;
+}
+
+/* Button */
+.rest-btn {
+  background: #3b2f2f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Merriweather";
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.rest-btn:hover {
+  background: #5a4343;
+}
+
+/* Grid Layout (3 per row) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* =======================================================
+   RESTAURANT PAGE — Café Aesthetic
+======================================================= */
+
+.restaurant-page {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Merriweather", serif;
+  color: var(--dark-brown);
+}
+
+/* Header Image */
+.restaurant-header {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* Titles */
+.res-title {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.res-subtitle {
+  font-size: 22px;
+  margin-bottom: 15px;
+  opacity: 0.85;
+}
+
+.res-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 30px;
+  margin: 30px 0 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Feedback List */
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feedback-card {
+  background: #f5e0c6;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.feedback-rating {
+  font-weight: bold;
+  color: #e87a0c;
+}
+
+.feedback-comment {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.feedback-date {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.no-feedback {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* Feedback Form */
+.feedback-form {
+  background: #f8e7ce;                      /* soft beige */
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  margin-top: 25px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+/* Beautiful label */
+.form-label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-family: "Playfair Display";
+  color: #3b2f2f;
+}
+
+/* Inputs */
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #c9b29e;
+  background: #fdf7ef;
+  font-size: 17px;
+  font-family: "Merriweather";
+  color: #3b2f2f;
+  transition: 0.2s;
+}
+
+/* On focus: soft glow */
+.form-input:focus {
+  outline: none;
+  border-color: #8a6f55;
+  box-shadow: 0 0 6px rgba(138, 111, 85, 0.4);
+}
+
+/* Textarea bigger appearance */
+.textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+/* Button */
+.submit-btn {
+  background: #3b2f2f;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-family: "Merriweather";
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: #5a403d;
+  transform: scale(1.03);
+}
+/* -------------------------------------------------------
+   TOP RATED PAGE — Café Aesthetic UI
+------------------------------------------------------- */
+
+.top-page {
+  max-width: 1050px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Merriweather", serif;
+  color: var(--dark-brown);
+}
+
+/* Main Heading */
+.top-title {
+  font-family: "Playfair Display";
+  font-size: 46px;
+  text-align: center;
+  color: var(--dark-brown);
+}
+
+.top-subtitle {
+  text-align: center;
+  opacity: 0.75;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* ----------------------------- */
+/* MOST LOVED HIGHLIGHT CARD */
+/* ----------------------------- */
+
+.highlight-card {
+  display: flex;
+  background: #f2d9b6;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+  cursor: pointer;
+  align-items: center;
+  gap: 18px;
+  transition: 0.25s;
+  margin-bottom: 35px;
+}
+
+.highlight-card:hover {
+  transform: scale(1.02);
+}
+
+.highlight-img {
+  width: 180px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.highlight-text h2 {
+  font-size: 28px;
+  font-family: "Playfair Display";
+  margin-bottom: 4px;
+}
+
+.highlight-text h3 {
+  font-size: 24px;
+  margin: 4px 0;
+}
+
+.highlight-rating {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* ----------------------------- */
+/* SECTIONS */
+/* ----------------------------- */
+
+.section-heading {
+  font-family: "Playfair Display";
+  font-size: 34px;
+  margin: 20px 0 15px;
+  color: var(--dark-brown);
+}
+
+/* ----------------------------- */
+/* GRID FOR CARDS */
+/* ----------------------------- */
+
+.top-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .top-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .top-grid { grid-template-columns: repeat(1, 1fr); }
+}
+
+/* ----------------------------- */
+/* RATING CARDS */
+/* ----------------------------- */
+
+.rated-card {
+  background: #f8e5c9;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.rated-card:hover {
+  transform: translateY(-6px);
+}
+
+.rated-img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.rated-info h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.loc {
+  opacity: 0.7;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.star {
+  font-size: 18px;
+  font-weight: bold;
+}
+/* ----------------------------------------------------
+   ABOUT PAGE — Café Style
+---------------------------------------------------- */
+
+.about-page {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Merriweather", serif;
+  color: var(--dark-brown);
+}
+
+.about-title {
+  font-family: "Playfair Display";
+  font-size: 46px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.about-subtitle {
+  text-align: center;
+  opacity: 0.75;
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+
+/* Cards */
+.about-card {
+  background: #f8e4c9;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  margin-bottom: 25px;
+}
+
+.section-heading {
+  font-family: "Playfair Display";
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.feature-list li,
+.tech-list li,
+.team-list li {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+/* Mentor Section */
+.mentor-title {
+  margin-top: 20px;
+  font-size: 22px;
+  font-family: "Playfair Display";
+}
+
+.mentor-name {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Footer */
+.footer-text {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 15px;
+  opacity: 0.7;
+}
