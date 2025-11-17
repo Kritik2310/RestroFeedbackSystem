@@ -51,8 +51,8 @@ export default function About() {
       <div className="about-card">
         <h2 className="section-heading">👩‍💻 Team Members</h2>
         <ul className="team-list">
-          <li><strong>Kriti Kashyap</strong> — UI Designer</li>
-          <li><strong>Harshika Bodekar</strong>  — Backend Developer</li>
+          <li><strong>Kriti Kashyap</strong> — Backend Developer</li>
+          <li><strong>Harshika Bodekar</strong>  — UI Developer</li>
           <li><strong>Mayur Patil</strong> — Database Integration</li> 
         </ul>
 

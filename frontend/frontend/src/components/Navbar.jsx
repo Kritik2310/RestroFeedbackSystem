@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="nav-right">
         <Link className="nav-link" to="/">Home</Link>
         <Link className="nav-link" to="/about">About</Link>
-        <a className="nav-link" href="#footer">Contact</a>
+        <Link className="nav-link" to="/admin">Admin</Link>
       </div>
     </nav>
   );

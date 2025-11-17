@@ -30,20 +30,21 @@ router.get("/trending", async (req, res) => {
       { $limit: 5 }
     ]);
 
-    // Populate restaurant info
-    const results = await Promise.all(
-      trending.map(async (t) => {
-        const rest = await Restaurant.findById(t._id);
-        return {
-          ...rest.toObject(),
-          feedbackCount: t.feedbackCount
-        };
-      })
-    );
+    const results = [];
+
+    for (const t of trending) {
+      const rest = await Restaurant.findById(t._id);
+      if (!rest) continue;  // ⭐ THIS FIXES YOUR ERROR
+
+      results.push({
+        ...rest.toObject(),
+        feedbackCount: t.feedbackCount
+      });
+    }
 
     res.json(results);
   } catch (err) {
-    console.error(err);
+    console.error("TRENDING ERROR:", err);
     res.status(500).json({ error: "Server Error" });
   }
 });

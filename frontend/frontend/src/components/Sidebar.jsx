@@ -38,6 +38,12 @@ export default function Sidebar() {
                     <InformationCircleIcon className="icon" /> About
                   </Link>
                 </li>
+
+                <li>
+                  <Link to="/admin" className="sidebar-link">
+                    <InformationCircleIcon className="icon" />Admin Dashboard
+                  </Link>
+                </li>
               </ul>
             </nav>
           </>

@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';
 import AddRestaurant from './pages/TopRated';
 import About from './pages/About';
 import Navbar from './components/Navbar';
+import AdminDashboard from './pages/AdminDashboard';
 import './styles.css';
 
 function App(){
@@ -19,6 +20,7 @@ function App(){
             <Route path="/restaurant/:id" element={<RestaurantPage />} />
             <Route path='/add-restaurant' element={<AddRestaurant />} />
             <Route path='/about' element={<About />} />
+            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </div>
       </div>
